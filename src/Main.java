@@ -1,0 +1,47 @@
+import Produto.Celular;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Celular> Vitrine = new ArrayList<>();
+        Celular Iphone = new Celular(128, "iphone", 5000);
+        Vitrine.add(Iphone);
+        System.out.println(Vitrine);
+        Scanner ler = new Scanner(System.in);
+        int opcao =1;
+        while(opcao != 0){
+            System.out.println("Digite 1 para cadastro");
+            System.out.println("Digite 2 para Listar");
+            System.out.println("Digite 3 para sair");
+            opcao = ler.nextInt();
+            ler.nextLine();
+            switch (opcao){
+                case 1:
+                    System.out.println("digite o nome do celular");
+                    String nomeDado = ler.nextLine();
+                System.out.println("armazenamento");
+                int armazenamentoDado = ler.nextInt();
+                    System.out.println("digite o Preço");
+                    int PreCoDado = ler.nextInt();
+                    ler.nextLine();
+                    Celular nomeDoCelular = new Celular(armazenamentoDado, nomeDado, PreCoDado);
+                    Vitrine.add(nomeDoCelular);
+                    break;
+                case 2:
+                    System.out.println(Vitrine);
+                    break;
+                case 3:
+                    System.out.println("Saindo");
+                    opcao = 0;
+
+            }
+        }
+
+
+
+
+
+    }
+}
