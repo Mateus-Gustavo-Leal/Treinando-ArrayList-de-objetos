@@ -1,5 +1,6 @@
 import Produto.Celular;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,8 @@ public class Main {
         while(opcao != 0){
             System.out.println("Digite 1 para cadastro");
             System.out.println("Digite 2 para Listar");
-            System.out.println("Digite 3 para sair");
+            System.out.println("Digite 3 para Buscar");
+            System.out.println("Digite 4 para Buscar");
             opcao = ler.nextInt();
             ler.nextLine();
             switch (opcao){
@@ -33,15 +35,53 @@ public class Main {
                     System.out.println(Vitrine);
                     break;
                 case 3:
-                    System.out.println("Saindo");
-                    opcao = 0;
+                    System.out.println("Qual Celular deseja ver?");
+                    String busca = ler.nextLine();
+                    Celular CelularEncontrado = null;
+                        for (Celular unidade : Vitrine) {
+                            if (unidade.getNome().equalsIgnoreCase(busca)) {
+                                CelularEncontrado = unidade;
+                                break;
+                            }
+                        }
 
-            }
-        }
+                        if (CelularEncontrado != null) {
+                            System.out.println("O objeto está na lista");
+                            System.out.println(CelularEncontrado);
+                            break;
+                        } else {
+                            System.out.println("O objeto NÃO está na lista");
+                            break;    }
+                case 4:
+                    System.out.println("Qual Celular deseja remover");
+                     String REMOVER = ler.nextLine();
+                     Celular removerCelular = null;
+                     for (Celular unidade : Vitrine){
+                        if (unidade.getNome().equalsIgnoreCase(REMOVER)){
+                        removerCelular = unidade;
+                         break;
+                     }
+                     }
+                        if (removerCelular != null){
+                            System.out.println("o Celular for removido");
+                            System.out.println(removerCelular);
+                            Vitrine.remove(removerCelular);
+                        }
+
+                        else {
+                            System.out.println("celular não encontrado");
+                       } break;
+                     }
+
+
+
+                             }
+                        }
+                    }
 
 
 
 
 
-    }
-}
+
+
