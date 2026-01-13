@@ -1,9 +1,9 @@
 package Produto;
 
-import Loja.Produto;
+import Loja.*;
 
-public class Celular extends Produto {
-    int armazenamento;
+public class Celular extends Produto implements Operacoes {
+    private int armazenamento;
     public Celular(int armazenamento, String nome, int preco) {
     super(nome, preco);
     this.armazenamento = armazenamento;
@@ -11,8 +11,17 @@ public class Celular extends Produto {
     }
 
     @Override
-    public String toString() {
+    public void mostrarDetalhes() {
+        System.out.println("Celular: " + getNome() + " | Memória: " + armazenamento);
+    }
 
-       return "Celular:  "+ this.nome + "  armazenamento:  " +this.armazenamento+"  Preço  " +this.preco;
+    public int getArmazenamento() {
+        return armazenamento;
+    }
+
+    public void setArmazenamento(int armazenamento) {
+        this.armazenamento = armazenamento;
     }
 }
+
+

@@ -1,5 +1,5 @@
 import Produto.Celular;
-
+import Produto.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,6 +17,7 @@ public class Main {
             System.out.println("Digite 2 para Listar");
             System.out.println("Digite 3 para Buscar");
             System.out.println("Digite 4 para Buscar");
+            System.out.println("Digite 5 para sair");
             opcao = ler.nextInt();
             ler.nextLine();
             switch (opcao){
@@ -32,7 +33,9 @@ public class Main {
                     Vitrine.add(nomeDoCelular);
                     break;
                 case 2:
-                    System.out.println(Vitrine);
+                   for (Celular C : Vitrine){
+                       C.mostrarDetalhes();
+                   }
                     break;
                 case 3:
                     System.out.println("Qual Celular deseja ver?");
@@ -71,6 +74,9 @@ public class Main {
                         else {
                             System.out.println("celular não encontrado");
                        } break;
+                case 5:
+                    System.out.println("Saindo");
+                    opcao = 0;
                      }
 
 
